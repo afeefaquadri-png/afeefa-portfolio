@@ -1,26 +1,154 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Engineering paper (light) is the default. Blueprint is dark. */
+:root {
+  --paper: #f3efe6;
+  --paper-2: #e9e3d6;
+  --ink: #16213a;
+  --ink-soft: #4a5468;
+  --ink-faint: #7d828c;
+  --line: #16213a;
+  --grid: rgba(22, 33, 58, 0.06);
+  --accent: #c73e17;
+  --accent-soft: rgba(199, 62, 23, 0.1);
+  --flow: #1f6feb;
+  --card: #faf7f0;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    --paper: #0b1628;
+    --paper-2: #11203a;
+    --ink: #e6ecf5;
+    --ink-soft: #a6b3c7;
+    --ink-faint: #7a89a0;
+    --line: #9fc2ff;
+    --grid: rgba(159, 194, 255, 0.07);
+    --accent: #ff7a4d;
+    --accent-soft: rgba(255, 122, 77, 0.14);
+    --flow: #6fb1ff;
+    --card: #0f1d33;
   }
 }
 
+:root[data-theme="dark"] {
+  --paper: #0b1628;
+  --paper-2: #11203a;
+  --ink: #e6ecf5;
+  --ink-soft: #a6b3c7;
+  --ink-faint: #7a89a0;
+  --line: #9fc2ff;
+  --grid: rgba(159, 194, 255, 0.07);
+  --accent: #ff7a4d;
+  --accent-soft: rgba(255, 122, 77, 0.14);
+  --flow: #6fb1ff;
+  --card: #0f1d33;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-flow: var(--flow);
+  --color-card: var(--card);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+  --font-display: var(--font-serif);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--ink);
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+/* Liquid moving through a pipe */
+.pipe-flow {
+  stroke-dasharray: 6 10;
+  animation: flow 1.2s linear infinite;
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+/* Bubbles rising in the reactor */
+.bubble {
+  animation: rise 3s ease-in infinite;
+  opacity: 0;
+}
+@keyframes rise {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 0.9; }
+  100% { transform: translateY(-44px); opacity: 0; }
+}
+
+.agitator {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin-x 0.9s ease-in-out infinite alternate;
+}
+@keyframes spin-x {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(-1); }
+}
+
+.level {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: fill 4s ease-in-out infinite alternate;
+}
+@keyframes fill {
+  from { transform: scaleY(0.6); }
+  to { transform: scaleY(0.9); }
+}
+
+.tray-glow {
+  animation: glow 2.4s ease-in-out infinite;
+}
+@keyframes glow {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .pipe-flow, .bubble, .agitator, .level, .tray-glow {
+    animation: none;
+  }
+  .bubble { opacity: 0.6; }
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
