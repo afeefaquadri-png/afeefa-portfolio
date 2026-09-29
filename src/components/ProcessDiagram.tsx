@@ -186,7 +186,7 @@ function Horizontal() {
   const top = 20;
   const xs = units.map((_, i) => 20 + i * step);
   return (
-    <svg viewBox="0 0 1000 310" className="hidden w-full md:block" role="img" aria-label="Career process flow: Chemical Engineering, AI and ML training, building projects, AI Developer at Euron Systems">
+    <svg viewBox="0 0 1000 310" className="hidden w-full md:block">
       {units.slice(0, -1).map((u, i) => {
         const n = units[i + 1];
         const ax = xs[i] + u.ports.right;
@@ -210,7 +210,7 @@ function Vertical() {
   const left = 10;
   const ys = units.map((_, i) => 10 + i * step);
   return (
-    <svg viewBox="0 0 340 920" className="mx-auto block w-full max-w-sm md:hidden" role="img" aria-label="Career process flow: Chemical Engineering, AI and ML training, building projects, AI Developer at Euron Systems">
+    <svg viewBox="0 0 340 920" className="mx-auto block w-full max-w-sm md:hidden">
       {units.slice(0, -1).map((u, i) => {
         const n = units[i + 1];
         const x = left + 75;
@@ -229,7 +229,7 @@ function Vertical() {
 
 export default function ProcessDiagram() {
   return (
-    <figure>
+    <figure aria-label="Career process flow: Chemical Engineering, then AI and ML training, then building projects, then AI Developer at Euron Systems">
       <Horizontal />
       <Vertical />
     </figure>

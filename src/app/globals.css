@@ -8,13 +8,16 @@
   --paper-2: #e9e3d6;
   --ink: #16213a;
   --ink-soft: #4a5468;
-  --ink-faint: #7d828c;
+  --ink-faint: #62676f;
   --line: #16213a;
   --grid: rgba(22, 33, 58, 0.06);
   --accent: #c73e17;
   --accent-soft: rgba(199, 62, 23, 0.1);
   --flow: #1f6feb;
   --card: #faf7f0;
+  --panel: #16213a;
+  --panel-ink: #f3efe6;
+  --panel-accent: #ff8a5c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,6 +33,9 @@
     --accent-soft: rgba(255, 122, 77, 0.14);
     --flow: #6fb1ff;
     --card: #0f1d33;
+    --panel: #172a4a;
+    --panel-ink: #e6ecf5;
+    --panel-accent: #ff8a5c;
   }
 }
 
@@ -45,6 +51,9 @@
   --accent-soft: rgba(255, 122, 77, 0.14);
   --flow: #6fb1ff;
   --card: #0f1d33;
+  --panel: #172a4a;
+  --panel-ink: #e6ecf5;
+  --panel-accent: #ff8a5c;
 }
 
 @theme inline {
@@ -58,6 +67,9 @@
   --color-accent-soft: var(--accent-soft);
   --color-flow: var(--flow);
   --color-card: var(--card);
+  --color-panel: var(--panel);
+  --color-panel-ink: var(--panel-ink);
+  --color-panel-accent: var(--panel-accent);
   --font-sans: var(--font-plex-sans);
   --font-mono: var(--font-plex-mono);
   --font-display: var(--font-serif);
@@ -146,7 +158,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .pipe-flow, .bubble, .agitator, .level, .tray-glow {
+  .pipe-flow, .bubble, .agitator, .level, .tray-glow, .animate-ping {
     animation: none;
   }
   .bubble { opacity: 0.6; }

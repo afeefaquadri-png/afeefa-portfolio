@@ -26,10 +26,10 @@ export default function Home() {
           <a href="#top" className="font-display text-2xl">
             Afeefa<span className="text-accent">.</span>
           </a>
-          <div className="flex items-center gap-1 text-sm">
-            <a href="#now" className="hidden rounded-full px-3 py-1.5 text-ink-soft hover:text-ink sm:inline">Now</a>
-            <a href="#projects" className="hidden rounded-full px-3 py-1.5 text-ink-soft hover:text-ink sm:inline">Projects</a>
-            <a href="#contact" className="hidden rounded-full px-3 py-1.5 text-ink-soft hover:text-ink sm:inline">Contact</a>
+          <div className="flex items-center gap-0.5 text-[13px] sm:gap-1 sm:text-sm">
+            <a href="#now" className="rounded-full px-2 py-2 text-ink-soft hover:text-ink sm:px-3">Now</a>
+            <a href="#projects" className="rounded-full px-2 py-2 text-ink-soft hover:text-ink sm:px-3">Projects</a>
+            <a href="#contact" className="rounded-full px-2 py-2 text-ink-soft hover:text-ink sm:px-3">Contact</a>
             <ThemeToggle />
           </div>
         </nav>
@@ -38,7 +38,7 @@ export default function Home() {
       <main id="top" className="mx-auto max-w-6xl px-4 md:px-8">
         {/* Hero */}
         <section className="pb-16 pt-12 md:pb-24 md:pt-20">
-          <Reveal>
+          <div>
             <p className="mb-6 font-mono text-xs tracking-[0.2em] text-ink-soft">
               DWG NO. AAS-2026 · PROCESS FLOW OF ONE CAREER
             </p>
@@ -51,15 +51,15 @@ export default function Home() {
               <br />
               <span className="italic text-accent">by practice.</span>
             </h1>
-          </Reveal>
-          <Reveal delay={120}>
+          </div>
+          <div>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft md:text-xl">
               I&apos;m Afeefa Albeena Sheikh, an AI Developer at{" "}
               <span className="text-ink">Euron Systems</span>. I build RAG systems, multi-agent tools and the
               web and mobile products they live inside. Below is how I got here, drawn the way I was first taught
               to draw anything: as a process.
             </p>
-          </Reveal>
+          </div>
 
           <Reveal delay={240} className="mt-14 md:mt-20">
             <ProcessDiagram />
@@ -105,13 +105,13 @@ export default function Home() {
         {/* Why the background matters */}
         <section className="py-16 md:py-24">
           <Reveal>
-            <div className="grid items-center gap-10 rounded-3xl bg-ink px-6 py-12 text-paper md:grid-cols-[1.1fr_1fr] md:px-14 md:py-16">
+            <div className="grid items-center gap-10 rounded-3xl bg-panel px-6 py-12 text-panel-ink md:grid-cols-[1.1fr_1fr] md:px-14 md:py-16">
               <div>
-                <p className="mb-4 font-mono text-xs tracking-[0.2em] text-accent">WHY IT STILL MATTERS</p>
+                <p className="mb-4 font-mono text-xs tracking-[0.2em] text-panel-accent">WHY IT STILL MATTERS</p>
                 <p className="font-display text-3xl leading-tight md:text-5xl">
                   A problem often shows up far from where it started.
                 </p>
-                <p className="mt-6 max-w-lg text-[17px] leading-relaxed opacity-75">
+                <p className="mt-6 max-w-lg text-[17px] leading-relaxed opacity-80">
                   Process engineering teaches you that, and that things tend to break at the handoff between
                   stages. It turned out to be most of debugging. When a screen goes blank or a payment fails,
                   I stop looking at where it hurts and start tracing upstream.
@@ -219,14 +219,14 @@ function UpstreamSketch() {
       <path d="M20 110 H340" stroke="currentColor" strokeOpacity="0.25" strokeWidth="8" fill="none" />
       <path d="M20 110 H340" stroke="var(--flow)" strokeWidth="2.5" fill="none" className="pipe-flow" />
       {[70, 180, 290].map((x) => (
-        <rect key={x} x={x - 22} y="82" width="44" height="56" rx="10" fill="var(--ink)" stroke="currentColor" strokeWidth="2" />
+        <rect key={x} x={x - 22} y="82" width="44" height="56" rx="10" fill="var(--panel)" stroke="currentColor" strokeWidth="2" />
       ))}
-      <circle cx="70" cy="110" r="7" fill="var(--accent)" />
-      <circle cx="70" cy="110" r="16" fill="none" stroke="var(--accent)" strokeWidth="1.5" className="animate-ping" style={{ transformBox: "fill-box", transformOrigin: "center", animationDuration: "2s" }} />
-      <text x="70" y="170" textAnchor="middle" fontFamily="var(--font-plex-mono)" fontSize="11" fill="var(--accent)" letterSpacing="1.5">CAUSE</text>
+      <circle cx="70" cy="110" r="7" fill="var(--panel-accent)" />
+      <circle cx="70" cy="110" r="16" fill="none" stroke="var(--panel-accent)" strokeWidth="1.5" className="animate-ping" style={{ transformBox: "fill-box", transformOrigin: "center", animationDuration: "2s" }} />
+      <text x="70" y="170" textAnchor="middle" fontFamily="var(--font-plex-mono)" fontSize="11" fill="var(--panel-accent)" letterSpacing="1.5">CAUSE</text>
       <text x="290" y="170" textAnchor="middle" fontFamily="var(--font-plex-mono)" fontSize="11" fill="currentColor" opacity="0.6" letterSpacing="1.5">SYMPTOM</text>
-      <path d="M270 62 C 220 34, 130 34, 86 66" stroke="var(--accent)" strokeWidth="1.5" strokeDasharray="4 5" fill="none" />
-      <path d="M86 64 l2 -11 M86 64 l11 -2" stroke="var(--accent)" strokeWidth="1.5" fill="none" />
+      <path d="M270 62 C 220 34, 130 34, 86 66" stroke="var(--panel-accent)" strokeWidth="1.5" strokeDasharray="4 5" fill="none" />
+      <path d="M86 66 l2 -11 M86 66 l11 -2" stroke="var(--panel-accent)" strokeWidth="1.5" fill="none" />
       <text x="180" y="14" textAnchor="middle" fontFamily="var(--font-plex-mono)" fontSize="11" fill="currentColor" opacity="0.6" letterSpacing="1.5">TRACE UPSTREAM</text>
     </svg>
   );

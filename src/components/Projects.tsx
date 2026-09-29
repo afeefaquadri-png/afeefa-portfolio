@@ -17,15 +17,14 @@ export default function Projects() {
 
   return (
     <div>
-      <div className="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="Filter projects">
+      <div className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter projects">
         {filters.map((f) => {
           const on = f.key === active;
           const count = f.key === "All" ? projects.length : projects.filter((p) => p.categories.includes(f.key as Category)).length;
           return (
             <button
               key={f.key}
-              role="tab"
-              aria-selected={on}
+              aria-pressed={on}
               onClick={() => setActive(f.key)}
               className={`rounded-full px-4 py-2 text-sm transition-colors ${
                 on ? "bg-ink text-paper" : "bg-paper-2 text-ink-soft hover:text-ink"
@@ -38,7 +37,7 @@ export default function Projects() {
         })}
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite">
         {shown.map((p) => (
           <article
             key={p.tag}
@@ -59,11 +58,11 @@ export default function Projects() {
               ))}
             </ul>
             <div className="mt-auto flex gap-4 text-sm font-medium">
-              <a href={p.github} target="_blank" rel="noreferrer" className="underline decoration-ink-faint underline-offset-4 hover:decoration-accent hover:text-accent">
+              <a href={p.github} target="_blank" rel="noreferrer" aria-label={`${p.name} source code on GitHub`} className="-my-2 py-2 underline decoration-ink-faint underline-offset-4 hover:decoration-accent hover:text-accent">
                 Code
               </a>
               {p.demo && (
-                <a href={p.demo} target="_blank" rel="noreferrer" className="underline decoration-ink-faint underline-offset-4 hover:decoration-accent hover:text-accent">
+                <a href={p.demo} target="_blank" rel="noreferrer" aria-label={`${p.name} live demo`} className="-my-2 py-2 underline decoration-ink-faint underline-offset-4 hover:decoration-accent hover:text-accent">
                   Live demo
                 </a>
               )}
