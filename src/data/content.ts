@@ -68,7 +68,6 @@ export type Project = {
   stack: string[];
   categories: Category[];
   github: string;
-  demo?: string;
   featured?: boolean;
 };
 
@@ -84,7 +83,6 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "Claude API", "Voice AI"],
     categories: ["Product", "Agents"],
     github: gh("AI-Powered-Personalized-Learning-OS"),
-    demo: "https://dev.djz927engt7k1.amplifyapp.com/",
     featured: true,
   },
   {
@@ -96,7 +94,6 @@ export const projects: Project[] = [
     stack: ["Python", "FastAPI", "RAG", "AWS"],
     categories: ["RAG", "Product"],
     github: gh("Enterprise-Grade-AI-Knowledge-Copilot"),
-    demo: "https://dev.d2dg07mc33522q.amplifyapp.com/home",
     featured: true,
   },
   {
@@ -129,7 +126,6 @@ export const projects: Project[] = [
     stack: ["FastAPI", "Celery", "Redis", "SHAP"],
     categories: ["ML"],
     github: gh("klassify"),
-    demo: "https://klassify.streamlit.app/",
   },
   {
     tag: "E-06",
@@ -140,7 +136,6 @@ export const projects: Project[] = [
     stack: ["Gemini", "FastAPI", "MongoDB", "Docker"],
     categories: ["Agents", "Product"],
     github: gh("bazaarmind-AI"),
-    demo: "https://bazaarmind-ai.streamlit.app/",
   },
   {
     tag: "E-07",
@@ -151,7 +146,6 @@ export const projects: Project[] = [
     stack: ["Python", "Streamlit", "scikit-learn"],
     categories: ["ML"],
     github: gh("CrewInsight-project"),
-    demo: "https://crewinsight-project.streamlit.app/",
   },
   {
     tag: "E-08",

@@ -61,11 +61,6 @@ export default function Projects() {
               <a href={p.github} target="_blank" rel="noreferrer" aria-label={`${p.name} source code on GitHub`} className="-my-2 py-2 underline decoration-ink-faint underline-offset-4 hover:decoration-accent hover:text-accent">
                 Code
               </a>
-              {p.demo && (
-                <a href={p.demo} target="_blank" rel="noreferrer" aria-label={`${p.name} live demo`} className="-my-2 py-2 underline decoration-ink-faint underline-offset-4 hover:decoration-accent hover:text-accent">
-                  Live demo
-                </a>
-              )}
             </div>
           </article>
         ))}
